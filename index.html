@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Real Semester Plan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 My Real Semester Plan</h1>
+    <p class="subtitle">Track your courses, credits, and progress</p>
+    <div class="summary-bar">
+      <span id="total-credits">0 credits planned</span>
+      <span id="completed-credits">0 credits completed</span>
+      <span id="gpa-display">GPA: —</span>
+    </div>
+  </header>
+
+  <main id="semesters-container">
+    <!-- Semesters are rendered by JavaScript -->
+  </main>
+
+  <div class="fab-area">
+    <button class="btn-fab" id="add-semester-btn" title="Add semester">+ Add Semester</button>
+  </div>
+
+  <!-- Modal for adding/editing a course -->
+  <div id="modal-overlay" class="hidden">
+    <div class="modal">
+      <h2 id="modal-title">Add Course</h2>
+      <label>Course Name
+        <input type="text" id="course-name" placeholder="e.g. Calculus I" maxlength="80" />
+      </label>
+      <label>Course Code
+        <input type="text" id="course-code" placeholder="e.g. MATH 101" maxlength="20" />
+      </label>
+      <label>Credits
+        <input type="number" id="course-credits" min="0" max="12" step="0.5" value="3" />
+      </label>
+      <label>Grade (optional)
+        <select id="course-grade">
+          <option value="">— Not taken yet —</option>
+          <option value="A+">A+</option>
+          <option value="A">A</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B">B</option>
+          <option value="B-">B-</option>
+          <option value="C+">C+</option>
+          <option value="C">C</option>
+          <option value="C-">C-</option>
+          <option value="D+">D+</option>
+          <option value="D">D</option>
+          <option value="D-">D-</option>
+          <option value="F">F</option>
+          <option value="P">P (Pass)</option>
+          <option value="NP">NP (No Pass)</option>
+          <option value="W">W (Withdrawn)</option>
+          <option value="IP">IP (In Progress)</option>
+        </select>
+      </label>
+      <label>Notes
+        <textarea id="course-notes" placeholder="Optional notes…" rows="2" maxlength="200"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn-secondary">Cancel</button>
+        <button id="modal-save" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding a semester -->
+  <div id="semester-modal-overlay" class="hidden">
+    <div class="modal">
+      <h2>Add Semester</h2>
+      <label>Semester Name
+        <input type="text" id="semester-name" placeholder="e.g. Fall 2025" maxlength="40" />
+      </label>
+      <div class="modal-actions">
+        <button id="semester-modal-cancel" class="btn-secondary">Cancel</button>
+        <button id="semester-modal-save" class="btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
